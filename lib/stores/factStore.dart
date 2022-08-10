@@ -36,8 +36,6 @@ abstract class Facts with Store {
       for (var eachItem in decodedData['data']) {
         if (eachItem != null) {
           facts.add('${index + 1}) ${decodedData['data'][index]['fact']}');
-          // tempColorCodes.add(
-          //     (600 / int.parse(decodedData['data'][index]['fact_id'])).toInt());
           int paletteIndex = Random().nextInt(palette.length);
           colors.add(palette[paletteIndex]);
           // print(eachItem['anime_name']);
