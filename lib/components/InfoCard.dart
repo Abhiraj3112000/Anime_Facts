@@ -1,6 +1,5 @@
-import 'package:anime_facts/factsPage.dart';
+import 'package:anime_facts/pages/FactsPage.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
 
 class InfoCard extends StatelessWidget {
   final String? image;
@@ -39,11 +38,6 @@ class InfoCard extends StatelessWidget {
                     color: Colors.black,
                     offset: Offset(5.0, 5.0),
                   ),
-                  // Shadow(
-                  //   color: Colors.black,
-                  //   blurRadius: 10.0,
-                  //   offset: Offset(-10.0, 5.0),
-                  // ),
                 ],
               ),
             ),

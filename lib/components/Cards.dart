@@ -8,26 +8,24 @@ class Cards extends StatefulWidget {
 }
 
 class _CardsState extends State<Cards> {
-  CardStore _cards = CardStore();
+  final CardStore _cardStore = CardStore();
 
   @override
   void initState() {
     // TODO: implement initState
 
-    _cards.populateCards();
+    _cardStore.populateCards();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Observer(
-        builder: (context) {
-          return ListView(
-            children: _cards.itemList,
-          );
-        },
-      ),
+    return Observer(
+      builder: (context) {
+        return ListView(
+          children: _cardStore.itemList,
+        );
+      },
     );
   }
 }

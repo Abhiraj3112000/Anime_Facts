@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'homePage.dart';
-import 'factsPage.dart';
+import 'pages/HomePage.dart';
 
-void main() => runApp(AnimeFacts());
+void main() => runApp(const AnimeFacts());
 
 class AnimeFacts extends StatefulWidget {
   const AnimeFacts({Key? key}) : super(key: key);
