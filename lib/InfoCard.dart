@@ -22,7 +22,7 @@ class InfoCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(10.0),
-              color: Colors.blueAccent,
+              color: Colors.brown,
               border: Border.all(
                 color: Colors.white,
               )),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:convert';
+import 'package:anime_facts/animeNames.dart';
 import 'InfoCard.dart';
 import 'package:http/http.dart' as http;
 
-Uri uri = Uri.parse('https://anime-facts-rest-api.herokuapp.com/api/v1');
 String? errorImage =
     'https://rockcontent.com/wp-content/uploads/2021/02/stage-en-error-1020.png';
 
@@ -20,35 +20,26 @@ class _CardsState extends State<Cards> {
   ];
 
   void getData() async {
-    http.Response response = await http.get(uri);
-    if (response.statusCode == 200) {
-      String data = response.body;
-      var decodedData = jsonDecode(data);
-      // print(decodedData['data'][0]['anime_name']);
+    int index = 0;
+    List<InfoCard> tempList = [];
 
-      int index = 0;
-      List<InfoCard> tempList = [];
-
-      for (var eachItem in decodedData['data']) {
-        if (eachItem != null && eachItem['anime_name'] != 'itachi_uchiha') {
+    if (myData != null) {
+      for (var eachItem in myData) {
+        if (eachItem != null) {
           tempList.add(
             InfoCard(
-                name: eachItem['anime_name'],
+                name: eachItem['anime_name'] as String,
                 image: eachItem['anime_img'] as String?),
           );
-          // print(eachItem['anime_name']);
         }
       }
-
-      setState(() {
-        _itemList = tempList;
-        loaded = true;
-      });
-      index++;
-      // print(_itemList);
-    } else {
-      print(response.statusCode);
     }
+
+    setState(() {
+      _itemList = tempList;
+      loaded = true;
+    });
+    index++;
   }
 
   @override

@@ -8,7 +8,7 @@ import 'dart:math';
 String baseURL = 'https://anime-facts-rest-api.herokuapp.com/api/v1/';
 
 class factsPage extends StatefulWidget {
-  String anime_name = "annonymous";
+  String anime_name = "anonymous";
 
   factsPage(this.anime_name);
 
@@ -28,8 +28,8 @@ class _factsPageState extends State<factsPage> {
     if (response.statusCode == 200) {
       String data = response.body;
       var decodedData = jsonDecode(data);
-      print(
-          '${decodedData['data'][0]['fact_id']}) ${decodedData['data'][0]['fact']}');
+      // print(
+      //     '${decodedData['data'][0]['fact_id']}) ${decodedData['data'][0]['fact']}');
 
       List<String> tempFacts = [];
       List<Color> tempColors = [];
@@ -40,8 +40,8 @@ class _factsPageState extends State<factsPage> {
           tempFacts.add('${index + 1}) ${decodedData['data'][index]['fact']}');
           // tempColorCodes.add(
           //     (600 / int.parse(decodedData['data'][index]['fact_id'])).toInt());
-          int palette_index = Random().nextInt(palette.length);
-          tempColors.add(palette[palette_index]);
+          int paletteIndex = Random().nextInt(palette.length);
+          tempColors.add(palette[paletteIndex]);
           // print(eachItem['anime_name']);
         }
         index++;
@@ -53,7 +53,7 @@ class _factsPageState extends State<factsPage> {
         loaded = true;
       });
 
-      print(decodedData);
+      // print(decodedData);
     } else {
       print(response.statusCode);
     }
@@ -79,29 +79,50 @@ class _factsPageState extends State<factsPage> {
               color: Colors.white,
               size: 100.0,
             ))
-          : ListView.separated(
-              padding: const EdgeInsets.all(8),
-              itemCount: facts.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  height: 200,
-                  color: colors[index],
-                  // color: Colors.blueAccent,
-                  child: Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Text(
-                      '${facts[index]}',
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                );
-              },
-              separatorBuilder: (BuildContext context, int index) =>
-                  const Divider(),
+          : EachFact(facts: facts, colors: colors),
+    );
+  }
+}
+
+class EachFact extends StatelessWidget {
+  const EachFact({
+    Key? key,
+    required this.facts,
+    required this.colors,
+  }) : super(key: key);
+
+  final List<String> facts;
+  final List<Color> colors;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      padding: const EdgeInsets.all(8),
+      itemCount: facts.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              color: colors[index],
+              border: Border.all(
+                color: Colors.white,
+              )),
+          height: 200,
+
+          // color: Colors.blueAccent,
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Text(
+              '${facts[index]}',
+              style: TextStyle(
+                fontSize: 17,
+                color: Colors.black,
+              ),
             ),
+          ),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }
 }
