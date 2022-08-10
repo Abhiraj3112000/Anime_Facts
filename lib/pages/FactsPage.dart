@@ -77,11 +77,15 @@ class FactList extends StatelessWidget {
           // color: Colors.blueAccent,
           child: Padding(
             padding: const EdgeInsets.all(20),
-            child: Text(
-              facts[index],
-              style: const TextStyle(
-                fontSize: 17,
-                color: Colors.black,
+            child: Scrollbar(
+              child: SingleChildScrollView(
+                child: Text(
+                  facts[index],
+                  style: const TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ),
           ),

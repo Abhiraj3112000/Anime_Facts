@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import '../components/InfoCard.dart';
+import '../components/Card.dart';
 import 'package:anime_facts/constants/AnimeNames.dart';
 
 part 'cardStore.g.dart';
