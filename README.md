@@ -2,7 +2,7 @@
 
 ## Info -
 
-- A beautiful app to know some rare facts about some popular animes built bu consuming [This](https://docs.flutter.dev/get-started/codelab) API.
+- A beautiful app to know some rare facts about some popular animes built bu consuming [This API](https://chandan-02.github.io/anime-facts-rest-api/).
 - This App is built using [mobX](https://pub.dev/packages/mobx).
 
 ## How it looks -
