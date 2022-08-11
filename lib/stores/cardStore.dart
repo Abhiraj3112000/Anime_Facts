@@ -12,7 +12,7 @@ class CardStore = Cards with _$CardStore;
 abstract class Cards with Store {
   @observable
   List<InfoCard> itemList = [
-    InfoCard(name: '', image: errorImage),
+    InfoCard(title: '', name: '', image: errorImage),
   ];
 
   @action
@@ -21,6 +21,7 @@ abstract class Cards with Store {
     for (var eachItem in myData) {
       itemList.add(
         InfoCard(
+            title: eachItem['anime_title'] as String,
             name: eachItem['anime_name'] as String,
             image: eachItem['anime_img'] as String?),
       );

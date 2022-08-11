@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:http/http.dart' as http;
 import 'package:anime_facts/stores/factStore.dart';
-import '../constants/ColorPalette.dart';
-import 'dart:convert';
-import 'dart:math';
 
 String baseURL = 'https://anime-facts-rest-api.herokuapp.com/api/v1/';
 
 class factsPage extends StatefulWidget {
   String anime_name = "anonymous";
+  String anime_title = "ANONYMOUS";
+  String? anime_image = "";
 
-  factsPage(this.anime_name, {Key? key}) : super(key: key);
+  factsPage(this.anime_name, this.anime_title, this.anime_image, {Key? key})
+      : super(key: key);
 
   @override
   State<factsPage> createState() => _factsPageState();
@@ -31,9 +30,17 @@ class _factsPageState extends State<factsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Stack(children: [
+      Image.network(
+        widget.anime_image as String,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        fit: BoxFit.cover,
+      ),
+      Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text(widget.anime_name),
+          title: Text(widget.anime_title),
         ),
         body: Observer(
           builder: (context) {
@@ -45,7 +52,9 @@ class _factsPageState extends State<factsPage> {
                   ))
                 : FactList(facts: factStore.facts, colors: factStore.colors);
           },
-        ));
+        ),
+      ),
+    ]);
   }
 }
 
@@ -68,7 +77,7 @@ class FactList extends StatelessWidget {
         return Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: colors[index],
+              color: colors[index].withOpacity(0.9),
               border: Border.all(
                 color: Colors.white,
               )),
@@ -82,8 +91,8 @@ class FactList extends StatelessWidget {
                 child: Text(
                   facts[index],
                   style: const TextStyle(
-                    fontSize: 17,
-                    color: Colors.black,
+                    fontSize: 20,
+                    color: Colors.white,
                   ),
                 ),
               ),

@@ -58,8 +58,8 @@ mixin _$FactStore on Facts, Store {
       AsyncAction('Facts.getFacts', context: context);
 
   @override
-  Future<void> getFacts(dynamic anime_name) {
-    return _$getFactsAsyncAction.run(() => super.getFacts(anime_name));
+  Future<void> getFacts(dynamic animeName) {
+    return _$getFactsAsyncAction.run(() => super.getFacts(animeName));
   }
 
   @override
