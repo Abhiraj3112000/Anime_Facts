@@ -7,5 +7,8 @@
 
 ## How it looks -
 
+### HOME SCREEN -
 ![home_screen](app_img_1.jpeg)
+
+### FACTS SCREEN -
 ![facts_screen](app_img_2.jpeg)
