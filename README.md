@@ -8,6 +8,6 @@
 ## How it looks -
 
 <p float="left">
-  <img src="app_img_1.jpeg" width="150" />
-  <img src="app_img_2.jpeg" width="150" /> 
+  <img src="app_img_1.jpeg" width="200" />
+  <img src="app_img_2.jpeg" width="200" /> 
 </p>
