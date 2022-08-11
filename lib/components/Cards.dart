@@ -28,6 +28,9 @@ class _CardsState extends State<Cards> {
         return SafeArea(
           child: Column(
             children: [
+              SizedBox(
+                height: 20.0,
+              ),
               Text(
                 _titleStore.title,
                 style: const TextStyle(
