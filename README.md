@@ -7,4 +7,7 @@
 
 ## How it looks -
 
-![home_screen](app_img_1.jpeg) | ![facts_screen](app_img_2.jpeg)
+<p float="left">
+  <img src="app_img_1.jpeg" width="150" />
+  <img src="app_img_2.jpeg" width="150" /> 
+</p>
