@@ -1,4 +1,4 @@
-# anime_facts
+# Anime Facts
 
 ## Info -
 
