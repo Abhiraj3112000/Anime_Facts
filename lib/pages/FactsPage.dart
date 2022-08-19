@@ -9,7 +9,11 @@ class factsPage extends StatefulWidget {
   String anime_title = "ANONYMOUS";
   String? anime_image = "";
 
-  factsPage(this.anime_name, this.anime_title, this.anime_image, {Key? key})
+  factsPage(
+      {required this.anime_name,
+      required this.anime_title,
+      this.anime_image,
+      Key? key})
       : super(key: key);
 
   @override

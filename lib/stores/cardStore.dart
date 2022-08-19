@@ -1,18 +1,15 @@
 import 'package:mobx/mobx.dart';
 import '../components/Card.dart';
+import '../constants/Globals.dart';
 import 'package:anime_facts/constants/AnimeNames.dart';
-
 part 'cardStore.g.dart';
-
-String? errorImage =
-    'https://rockcontent.com/wp-content/uploads/2021/02/stage-en-error-1020.png';
 
 class CardStore = Cards with _$CardStore;
 
 abstract class Cards with Store {
   @observable
   List<InfoCard> itemList = [
-    InfoCard(title: '', name: '', image: errorImage),
+    InfoCard(title: '', name: '', image: ERROR_IMAGE),
   ];
 
   @action

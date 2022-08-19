@@ -52,9 +52,12 @@ class InfoCard extends StatelessWidget {
       ),
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => factsPage(name, title, image)));
+          context,
+          MaterialPageRoute(
+            builder: (context) => factsPage(
+                anime_name: name, anime_title: title, anime_image: image),
+          ),
+        );
       },
     );
   }
