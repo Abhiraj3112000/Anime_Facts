@@ -26,7 +26,6 @@ class _factsPageState extends State<factsPage> {
   @override
   void initState() {
     // TODO: implement initState
-
     factStore.getFacts(widget.anime_name);
     super.initState();
   }
