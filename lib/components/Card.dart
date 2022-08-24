@@ -1,5 +1,6 @@
 import 'package:anime_facts/pages/FactsPage.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class InfoCard extends StatelessWidget {
   final String title;
